@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;600;700&display=swap');
+
+:root{
+  --maxw: 760px;
+  --gap: 12px;
+  --brand: #00d1ff;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:"Noto Sans Myanmar",sans-serif;
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color:#fff;
+  text-align:center;
+}
+
+/* layout frame */
+.container{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 14px;
+}
+
+header{
+  padding: 22px 0 14px;
+  background: rgba(0,0,0,.42);
+  border-bottom: 1px solid rgba(255,255,255,.18);
+}
+.logo{
+  width: 110px;
+  height: auto;
+  border-radius: 22px;
+  box-shadow: 0 3px 12px rgba(0,0,0,.5);
+}
+h1{ font-size: 26px; margin:10px 0 4px; }
+h2{ font-size: 18px; color: var(--brand); margin:0 0 6px; }
+.subtitle{ font-size: 13px; color:#d6d6d6; margin:0; }
+
+/* buttons */
+.buttons{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+  padding: 12px 0;
+}
+.btn{
+  border:none; cursor:pointer;
+  background: var(--brand);
+  color:#fff; font-size:14px;
+  padding:9px 16px; border-radius:999px;
+}
+.btn:hover{ background:#00a2c2; }
+
+/* content blocks */
+.content{
+  display:none;
+  margin: 12px auto;
+  padding: 12px;
+  background: rgba(255,255,255,.06);
+  border-radius: 14px;
+  text-align: left;
+}
+.content.active{ display:block; animation:fade .25s ease; }
+.content h3{ margin:0 0 6px; font-size:18px; color:#00ffe0; text-align:center; }
+.content p{ margin:0 0 10px; font-size:13px; color:#eee; text-align:center; }
+
+/* ====== GALLERY: အပေါ်⇄အောက် (vertical) ====== */
+.gallery{
+  display:flex;
+  flex-direction: column;   /* အထက်⇄အောက် လိုက်ကျ */
+  align-items:center;       /* အလယ်ထောင် */
+  gap: 14px;                /* ပုံကြား အကွာအဝေး */
+  margin-top: 10px;
+}
+.gallery img{
+  width: 85%;               /* responsive အကျယ် */
+  max-width: 420px;         /* မကြီးအောင် တား */
+  height:auto;
+  border-radius: 12px;
+  box-shadow: 0 3px 14px rgba(0,0,0,.5);
+}
+
+/* footer */
+.footer{ font-size:12px; color:#bdbdbd; padding: 12px 0 18px; }
+
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* Mobile tuning */
+@media (max-width:420px){
+  .logo{ width:96px; }
+  h1{ font-size:24px; }
+  h2{ font-size:16px; }
+  /* gallery ကို row မပြောင်းစေချင်လို့ ဒီမှာ img width မပြောင်း */
+  
+  .gallery div {
+  text-align: center;
+}
+
+.gallery div p {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #00eaff;
+  font-weight: 600;
+}
+}
