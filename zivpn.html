@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ZIVPN — Trial & VIP</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --fs-sm:16px; --fs-md:18px; --fs-lg:22px; --fs-xl:30px;
+      --brand:#5dd39e; --brand-2:#3fb485; --ink:#f8fafc;
+      --glass:rgba(255,255,255,.08); --glass-b:rgba(255,255,255,.18);
+      --pay:#34d399; --pay-2:#10b981;
+      --bg1:#0f2027; --bg2:#203a43; --bg3:#2c5364;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:'Padauk',sans-serif; color:var(--ink);
+      background:linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));
+      background-size:400% 400%; animation:bg 18s ease infinite;
+      line-height:1.8;
+    }
+    @keyframes bg{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    .container{max-width:860px;margin:0 auto;padding:20px}
+
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:6px 0 0}
+    .brand{font-size:var(--fs-lg);font-weight:700}
+
+    .hero{
+      margin-top:10px;background:var(--glass);border:1px solid var(--glass-b);
+      backdrop-filter:blur(10px);border-radius:22px;padding:26px;box-shadow:0 10px 40px rgba(0,0,0,.35);text-align:center;
+    }
+    .circle-frame{
+      width:220px;height:220px;margin:0 auto 18px;border-radius:50%;padding:8px;
+      background: radial-gradient(circle at 30% 20%,#5dd39e33,#118ab233,#ffffff11);
+      border:6px solid rgba(255,255,255,.25);box-shadow:0 15px 40px rgba(0,0,0,.4),0 0 40px rgba(93,211,158,.28);
+      display:flex;align-items:center;justify-content:center;
+    }
+    .circle-frame img{width:100%;height:100%;object-fit:cover;border-radius:50%;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:14px 22px;border-radius:999px;font-weight:700;font-size:18px;
+      border:1px solid transparent;cursor:pointer;text-decoration:none;transition:.2s;
+      box-shadow:0 8px 24px rgba(0,0,0,.25); color:#05352a; min-height:54px;
+    }
+    .btn--primary{background:linear-gradient(180deg,var(--brand),var(--brand-2))}
+    .btn--primary:hover{transform:translateY(-1px);filter:brightness(1.05)}
+    .btn--pay{background:linear-gradient(180deg,var(--pay),var(--pay-2)); color:#05352a;}
+    .btn--pay:hover{transform:translateY(-1px);filter:brightness(1.05)}
+    .btn--ghost{background:rgba(255,255,255,.05);border-color:var(--brand);color:var(--ink)}
+    .btn--ghost:hover{background:rgba(93,211,158,.12)}
+
+    .section{margin:28px 0}
+    .card{background:var(--glass); border:1px solid var(--glass-b);
+      backdrop-filter:blur(8px); border-radius:18px; padding:18px; box-shadow:0 10px 32px rgba(0,0,0,.3);}
+    .s-title{font-size:var(--fs-xl);margin:0 0 12px}
+
+    .vip-price{display:flex;align-items:center;justify-content:space-between;gap:10px;
+      background:rgba(93,211,158,.12); border:1px dashed #5dd39e; padding:14px; border-radius:14px;}
+    .vip-price b{font-size:var(--fs-lg)}
+    .price-chip{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 16px;border-radius:14px;
+      background:linear-gradient(180deg,#d1fae5,#a7f3d0);
+      color:#064e3b; font-weight:900; font-size:22px;
+      box-shadow:inset 0 1px 0 #fff8, 0 6px 18px rgba(0,0,0,.15);
+    }
+    .price-chip small{font-weight:700;font-size:14px;margin-left:6px;opacity:.9}
+
+    .vip-actions{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px}
+    .vip-actions .btn{width:100%}
+    @media(max-width:520px){ .vip-actions{grid-template-columns:1fr} }
+
+    /* 🔧 Trial key — one-line + auto-fit */
+    .keybox{
+      background:#1f2641;border:1px dashed #6e8898;border-radius:12px;
+      padding:14px;font-family:Courier New,monospace;font-weight:700;
+      letter-spacing:1px;font-size:18px;line-height:1.4;
+      width:100%; box-sizing:border-box;
+
+      white-space:nowrap;      /* 👉 တကြောင်းတည်း */
+      overflow:hidden;         /* fit မသေးခင် overflow မပြ */
+      text-overflow:clip;      /* ellipsis မသုံး */
+    }
+
+    .copy{background:#118ab2;color:#fff;box-shadow:0 10px 28px rgba(17,138,178,.35)}
+    .copy:hover{background:#0f92c0}
+
+    .footer{opacity:.85;font-size:var(--fs-sm);text-align:center;margin:22px 0}
+
+    .modal{position:fixed;inset:0;display:none;place-items:center;background:rgba(0,0,0,.55);backdrop-filter:blur(2px);z-index:50}
+    .modal.open{display:grid}
+    .modal-card{width:min(92vw,420px); background:#0f172a; border:1px solid rgba(255,255,255,.15);
+      border-radius:16px; padding:16px; box-shadow:0 20px 60px rgba(0,0,0,.5); text-align:center; color:#e5e7eb;}
+    .qr-wrap{background:linear-gradient(180deg,#0b1324,#0c1a32); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:12px;}
+    .qr-wrap img{width:100%; border-radius:10px; display:block}
+    .modal-actions{display:flex;gap:10px;justify-content:center;margin-top:12px}
+    .close{background:#e5e7eb; color:#111827}
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="nav"><div class="brand">ZIVPN</div></div>
+
+    <section class="hero">
+      <div class="circle-frame">
+        <img src="https://raw.githubusercontent.com/UPKVPN/Zivpn/refs/heads/main/Screenshot_20251008_222929_Google%20Play%20Store.jpg" alt="ZIVPN">
+      </div>
+      <a class="btn btn--primary" id="download"
+         href="https://github.com/UPKVPN/Newsrc/releases/download/V.1.0.1/ZIVPN.V_2.0.3.Mod.by.JORYYUI68.apk">ZIVPN ကို Download ရယူပါ</a>
+    </section>
+
+    <section id="vip" class="section">
+      <h2 class="s-title">VIP ဝယ်ယူရန်</h2>
+      <div class="card">
+        <div class="vip-price">
+          <div>
+            <b>ရက်(၃၀) — အကန့်သတ်မရှိ အသုံးပြုနိုင်</b><br/>
+            <span>Unlimited • Stability ကောင်း • One-tap Connect</span>
+          </div>
+          <div class="price-chip">40<small>ဘတ်</small></div>
+        </div>
+        <p style="margin:12px 0 0">VIP ဝယ်ယူလိုပါက အောက်ပါ ခလုတ်များမှ တစ်ခုကိုနှိပ်ပါ။ “ငွေပေးချေရန်” ကိုနှိပ်လျှင် QR ကိုဖော်ပြပါမည်။</p>
+        <div class="vip-actions">
+          <a class="btn btn--ghost" href="https://m.me/upkvpnfastvpn" target="_blank">ဆက်သွယ်ရန်</a>
+          <button class="btn btn--pay" id="payBtn">ငွေပေးချေရန်</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="trial" class="section">
+      <h2 class="s-title">အစမ်းသုံး Key</h2>
+      <div class="card">
+        <p style="margin-top:0">အောက်ပါ Key ကို copy ယူပြီး App ထဲတွင် ထည့်သွင်းပါ။</p>
+        <p style="font-weight:700;color:#ffd166;margin:8px 0 12px">📡 DTAC – TRUEMOVE – AIS ကြိုင်းဒီ / အရံနက်နဲ့ တွဲသုံးပါ</p>
+        <div id="trialKey" class="keybox">zivpn://r0no+QJeY9jHAV6lt/shRATSSsWsWqA3Ia9iJ93kTiMG3C/d0lNlna13wuC8+NvvArrWtRP8GXPQghivgKcONHwjMPuGN75aiACIdoC7Rxc2D1oFFFceGNaG6qq/pF56fCEoOy09+Z1oYstXzgb7OaCR1SuprbpTyi13FYET0c/cRqUGHftwf42U0vor7Svqv1s8MEZp4Hgq9eGfZpY6QV721EAE73hfXKb/pFO1GAt4zGDdBqJG4TtqeSGuveA5d9fmxFCXCm2BX+W5MzQYXFOUfnW5wOpvc1wQF0bCWWKAquoE9EMbYPeuoHwwrKQ2nfeV1iXaHXrVbTUsiHmipdDi5YxrUVeggIs4yNQwj9koW0ke+4tj/+myMO4wDOMRdnBT7k0wwcqxEvK6sKerZ9Sl6xwpzBN9BoUBwt2VljGAGHbZGGjULhnUZYNEboAzjSqrWQhr3myKkzFrloc+Iw3NJ1HmJijzLjtIL3ZOc9WVR2HchSSqELKca7kUaCMIR5u1fMGFsaiW4EzjX5AmYihAwtXppa5wI463PKbqRZZy0SJ+BaOL+lyvdENX9WpgtfB4VFy1+MSb0HZ3Ok9ceFb+2At6g2MYjPRBtkjytulwP8B3Jy79bJvIr85w5J9p4Ybaz9c49cMSdyyBoAZcfw/a8kkhk0JhZiLCI2VhzAWoAI3C5F8uG1XluJrRU5AWZDl1NZz2wFw3kQ1M2yZ3UVwlfYiYtnG7U/m1e6KenCEKoDWuHfGixUpF+L5k0WPmdZG5o6tl1ZsFW2bCtq0hc5KyBFTSiT4GRiyX+lEfmrpo25ZPXh0nYNgUad6lUhUTlkubH9BNJxMyI8u68da6cf+zbCSeFNsBrM8/mVGiScIflxUKJu3tCsqqWoNJrLKOYN7E4b+S0k8r0VqqR7iB/UIqUjaGbD8kbZvMinz2bQWIjQOjtLTEr7wjfGBuu0gfVnIc3g/wKQGX9L3ZoCS6LMWe1rCZQ5PiuPk7IpqkaucSn1h93NYtAHBjqXO98NyUV7TqfGL7PZGv8Stk/igsUWa4jsp/nfmhJLictY2GYJbev3ioNkqjTD7o9wShL6MMPDhbMAyFbSua/xK3JwgP2QYjtkX8PwHtPcy3A42GUysIWCAn758LiWdbVjxcYwn94YMjx0KGEcNQ7lj9j7fsznp5ued5a5cAhBvjYHdwD33jiwrGZ0pL0mBKalM9B+f3NKf2DAfRyX4AcrDHwSfvzl1eAlzCarMhbgbdtpDy5z4=</div>
+        <div style="display:flex;justify-content:center;margin-top:14px">
+          <button class="btn copy">Key ကို Copy ကူးမယ်</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">© <span id="y"></span> ZIVPN. All rights reserved.</div>
+  </div>
+
+  <!-- QR Modal -->
+  <div class="modal" id="payModal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="qrTitle">
+      <h3 id="qrTitle">QR ဖြင့် ငွေပေးချေမှု</h3>
+      <div class="qr-wrap">
+        <img id="qrImage" src="https://raw.githubusercontent.com/Upk123/koko/refs/heads/main/Qr.png" alt="Payment QR">
+      </div>
+      <div class="modal-actions">
+        <a class="btn btn--pay" id="downloadQR" href="https://raw.githubusercontent.com/Upk123/koko/refs/heads/main/Qr.png" download>QR ကို Download</a>
+        <button class="btn close" id="closeModal">ပိတ်မယ်</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Copy
+    function fallbackCopy(text){
+      const ta=document.createElement('textarea'); ta.value=text;
+      ta.style.position='fixed'; ta.style.left='-9999px';
+      document.body.appendChild(ta); ta.focus(); ta.select();
+      try{ document.execCommand('copy'); alert("Key ကို Copy ကူးပြီးပါပြီ: "+text); }
+      catch(e){ alert("Copy မလုပ်နိုင်ပါ: "+e); }
+      document.body.removeChild(ta);
+    }
+    document.querySelector('.copy').addEventListener('click', ()=>{
+      const text=document.getElementById('trialKey').innerText;
+      if(navigator.clipboard && window.isSecureContext){
+        navigator.clipboard.writeText(text)
+          .then(()=>alert("Key ကို အောင်မြင်စွာ Copy ကူးပြီးပါပြီ: "+text))
+          .catch(()=>fallbackCopy(text));
+      }else{ fallbackCopy(text); }
+    });
+
+    // ✅ Fit key to one line (auto-shrink)
+    function fitKeyOneLine(el){
+      const min = 10;                                  // px
+      let size = parseFloat(getComputedStyle(el).fontSize);
+      let spacing = parseFloat(getComputedStyle(el).letterSpacing) || 0;
+
+      el.style.whiteSpace = 'nowrap';
+      el.style.overflow   = 'hidden';
+
+      while (el.scrollWidth > el.clientWidth && size > min){
+        size -= 0.5;
+        spacing = Math.max(0, spacing - 0.02);
+        el.style.fontSize = size + 'px';
+        el.style.letterSpacing = spacing + 'px';
+      }
+    }
+
+    const keyEl = document.getElementById('trialKey');
+    window.addEventListener('load', ()=>fitKeyOneLine(keyEl));
+    window.addEventListener('resize', ()=>fitKeyOneLine(keyEl)); // screen size ပြောင်းရင် ပြန်ညှိ
+
+    // QR Modal
+    const payBtn   = document.getElementById('payBtn');
+    const payModal = document.getElementById('payModal');
+    const closeBtn = document.getElementById('closeModal');
+
+    function openModal(){ payModal.classList.add('open'); payModal.setAttribute('aria-hidden','false'); }
+    function closeModal(){ payModal.classList.remove('open'); payModal.setAttribute('aria-hidden','true'); }
+
+    payBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    payModal.addEventListener('click', (e)=>{ if(e.target===payModal) closeModal(); });
+    window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
+  </script>
+</body>
+</html>
