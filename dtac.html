@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DTAC စမတ်နည်း</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ပုံများကို ဒေါင်လိုက်စီပြီး အနည်းငယ် ခြားထားရန် စတိုင်လ်များ */
+    .gallery {
+      display: flex;
+      flex-direction: column; /* ဒေါင်လိုက်စီရန် */
+      gap: 30px; /* ပုံတစ်ခုစီကြား နေရာခြားရန် */
+      align-items: center; /* အလျားလိုက် ဗဟိုပြုရန် */
+    }
+    .gallery figure {
+      margin: 0; 
+      max-width: 100%; 
+      text-align: center;
+    }
+    
+    /* ပုံထောင့်ဝိုင်းခြင်း (Rounded Corners) နှင့် အရွယ်အစား သေးငယ်အောင် ပြင်ဆင်ထားသော စတိုင်လ်များ */
+    .gallery img {
+      width: 90%; /* ပုံရိပ်ကို အနည်းငယ် သေးငယ်အောင် ချိန်ညှိပါ */
+      max-width: 300px; /* ပုံ၏ အကြီးဆုံးအရွယ်အစားကို 300px ဖြင့် ကန့်သတ်ခြင်း (ပိုသေးရန်) */
+      border-radius: 15px; /* ထောင့်များကို ဝိုင်းစေခြင်း */
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* ပုံကို ထင်ရှားစေရန် အရိပ်ထည့်ခြင်း (Optional) */
+      
+      height: auto;
+      display: block;
+      border: 1px solid #ccc; 
+      margin: 0 auto; /* ပုံကို ဗဟိုတည့်တည့်ကျအောင် ချိန်ညှိပါ */
+    }
+    .guide-title {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-bottom: 10px; /* ခေါင်းစဉ်နှင့် ပုံကြား နေရာခြားရန် */
+      display: block; 
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <h2>DTAC စမတ်နည်း</h2>
+    <nav><a href="index.html"> Back</a></nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>DTAC Setup Guide</h1>
+      <p>အောက်ပါ နည်းလမ်းများအတိုင်း လုပ်ဆောင်ပါ။</p>
+    </section>
+
+    <section class="gallery">
+      <figure>
+        <span class="guide-title">ကြိုင်ဒီအရံနက် package (30)ရက် *117*30# (30)ဘတ်</span>
+        <img src="image/dtactrue.jpg" alt="DTAC Setup Step 1" class="img">
+      </figure>
+      
+      <figure>
+        <span class="guide-title">No Pro package လက်ကကြန်များဖျက်ပီးသုံးပါ</span>
+        <img src="image/dtnopro.jpg" alt="DTAC Setup Step 2" class="img">
+      </figure>
+
+      <figure>
+        <span class="guide-title">Dtac Game package (dtac appထဲ ဝင်စမက်ပါ) ရက်(90) 63ဘတ်</span>
+        <img src="image/dtgame.jpg" alt="DTAC Setup Step 3" class="img">
+      </figure>
+
+      <figure>
+        <span class="guide-title">လမ်းညွှန် (၄): APN ကို ထည့်သွင်းပါ</span>
+        <img src="image/dtac4.jpg" alt="DTAC Setup Step 4" class="img"> 
+      </figure>
+
+      <figure>
+        <span class="guide-title">လမ်းညွှန် (၅): သိမ်းဆည်းပြီး အသုံးပြုပါ</span>
+        <img src="image/dtac5.jpg" alt="DTAC Setup Step 5" class="img">
+      </figure>
+    </section>
+    
+  </main>
+</body>
+</html>

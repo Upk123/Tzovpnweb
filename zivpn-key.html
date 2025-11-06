@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ZIVPN — Trial Key</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h2>ZIVPN — အသုံးပြုနည်း / Trial Key</h2>
+    <nav><a href="index.html">← Back</a></nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <img src="image/zivpn-howto.jpg" class="img cover" alt="">
+      <p style="margin-top:12px;color:var(--muted)">App ကိုသွင်းပြီး <b>Trial Key</b> ကို Paste လုပ်ပါ။</p>
+    </section>
+
+    <section class="card" style="margin-top:18px">
+      <label for="trialKey"><b>ZI အစမ်းသုံး Key</b></label>
+      <div class="key-row">
+        <input id="trialKey" class="input" type="text" value="ZI-TRIAL-XXXXX-XXXXX" readonly>
+        <button class="btn small" id="copyBtn">Copy</button>
+      </div>
+
+      <div class="key-row" style="margin-top:10px">
+        <input id="requestBox" class="input" type="text" placeholder="name / phone ထည့်ပါ…">
+        <button class="btn small outline" id="requestBtn">Request Key</button>
+      </div>
+      <p class="note">* အစမ်း key သတ်မှတ်ရက်အတွင်း သက်တမ်းကုန်ပါမည်။</p>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('copyBtn').onclick=()=>{
+      const t=document.getElementById('trialKey'); t.select(); t.setSelectionRange(0,9999);
+      navigator.clipboard.writeText(t.value); alert("✔ Copied");
+    };
+    document.getElementById('requestBtn').onclick=()=>{
+      const v=document.getElementById('requestBox').value.trim();
+      if(!v) return alert('ကျေးဇူးပြု၍ အသေးစိတ်ရေးပါ');
+      alert('📨 Request sent: '+v); // later -> fetch('/api/…')
+    };
+  </script>
+</body>
+</html>
